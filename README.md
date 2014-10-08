@@ -3,6 +3,8 @@ excel.vim
 
 A simple vim plugin for displaying data of an excel file.  
 
+![screen shot](http://img5.tuchuang.org/uploads/2013/12/2013-12-09 21:14:57的屏幕截图.png)
+
 ##NOTE:
 + It requires your vim with `python` supported.
   
@@ -25,3 +27,4 @@ A simple vim plugin for displaying data of an excel file.
 
 
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yakiang/excel.vim/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

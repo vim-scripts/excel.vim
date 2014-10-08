@@ -1,6 +1,3 @@
-" Author: [yakiang](http://yakiang.com)
-" Contact : strak47@gmail.com
-
 command! -nargs=0 Excel call ParseExcel()
 
 if !has("python")
@@ -33,6 +30,8 @@ currfile = vim.eval("currfile")
 excelobj = xlrd.open_workbook(currfile)
 for sheet in excelobj.sheet_names():
     shn = excelobj.sheet_by_name(sheet)
+    try: sheet = sheet.replace(" ", "\\ ")
+    except: pass
     rowsnum = shn.nrows
     if not rowsnum:
         continue
@@ -41,6 +40,8 @@ for sheet in excelobj.sheet_names():
     for n in xrange(rowsnum):
         line = ""
         for val in shn.row_values(n):
+            try: val = val.replace('\n',' ')
+            except: pass
             val = isinstance(val,  basestring) and val.strip() or str(val).strip()
             line += val + ' ' * (30 - getRealLengh(val))
         vim.current.buffer.append(line)
